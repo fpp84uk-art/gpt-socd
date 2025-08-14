@@ -1,0 +1,468 @@
+{
+  "name": "SOCD • All Webhooks (linked)",
+  "nodes": [
+    {
+      "parameters": {
+        "path": "agent/health",
+        "httpMethod": "GET",
+        "responseMode": "responseNode"
+      },
+      "id": "1",
+      "name": "W_health",
+      "type": "n8n-nodes-base.webhook",
+      "typeVersion": 1,
+      "position": [
+        -900,
+        -300
+      ]
+    },
+    {
+      "parameters": {
+        "functionCode": "const body = $json.body ?? $json;\nreturn [{ json: { ok: true, endpoint: 'agent/health', received: body, ts: new Date().toISOString() } }];"
+      },
+      "id": "2",
+      "name": "F_health",
+      "type": "n8n-nodes-base.function",
+      "typeVersion": 1,
+      "position": [
+        -640,
+        -300
+      ]
+    },
+    {
+      "parameters": {
+        "responseCode": 200,
+        "responseData": "json",
+        "responseBody": "={{$json}}"
+      },
+      "id": "3",
+      "name": "R_health",
+      "type": "n8n-nodes-base.respondToWebhook",
+      "typeVersion": 1,
+      "position": [
+        -420,
+        -300
+      ]
+    },
+    {
+      "parameters": {
+        "path": "agent/ingest",
+        "httpMethod": "POST",
+        "responseMode": "responseNode"
+      },
+      "id": "4",
+      "name": "W_ingest",
+      "type": "n8n-nodes-base.webhook",
+      "typeVersion": 1,
+      "position": [
+        -900,
+        -120
+      ]
+    },
+    {
+      "parameters": {
+        "functionCode": "const body = $json.body ?? $json;\nreturn [{ json: { ok: true, endpoint: 'agent/ingest', received: body, ts: new Date().toISOString() } }];"
+      },
+      "id": "5",
+      "name": "F_ingest",
+      "type": "n8n-nodes-base.function",
+      "typeVersion": 1,
+      "position": [
+        -640,
+        -120
+      ]
+    },
+    {
+      "parameters": {
+        "responseCode": 200,
+        "responseData": "json",
+        "responseBody": "={{$json}}"
+      },
+      "id": "6",
+      "name": "R_ingest",
+      "type": "n8n-nodes-base.respondToWebhook",
+      "typeVersion": 1,
+      "position": [
+        -420,
+        -120
+      ]
+    },
+    {
+      "parameters": {
+        "path": "catalog/product",
+        "httpMethod": "POST",
+        "responseMode": "responseNode"
+      },
+      "id": "7",
+      "name": "W_catalog_product",
+      "type": "n8n-nodes-base.webhook",
+      "typeVersion": 1,
+      "position": [
+        -900,
+        60
+      ]
+    },
+    {
+      "parameters": {
+        "functionCode": "const body = $json.body ?? $json;\nreturn [{ json: { ok: true, endpoint: 'catalog/product', received: body, ts: new Date().toISOString() } }];"
+      },
+      "id": "8",
+      "name": "F_catalog_product",
+      "type": "n8n-nodes-base.function",
+      "typeVersion": 1,
+      "position": [
+        -640,
+        60
+      ]
+    },
+    {
+      "parameters": {
+        "responseCode": 200,
+        "responseData": "json",
+        "responseBody": "={{$json}}"
+      },
+      "id": "9",
+      "name": "R_catalog_product",
+      "type": "n8n-nodes-base.respondToWebhook",
+      "typeVersion": 1,
+      "position": [
+        -420,
+        60
+      ]
+    },
+    {
+      "parameters": {
+        "path": "orders/get",
+        "httpMethod": "POST",
+        "responseMode": "responseNode"
+      },
+      "id": "10",
+      "name": "W_orders_get",
+      "type": "n8n-nodes-base.webhook",
+      "typeVersion": 1,
+      "position": [
+        -900,
+        240
+      ]
+    },
+    {
+      "parameters": {
+        "functionCode": "const body = $json.body ?? $json;\nreturn [{ json: { ok: true, endpoint: 'orders/get', received: body, ts: new Date().toISOString() } }];"
+      },
+      "id": "11",
+      "name": "F_orders_get",
+      "type": "n8n-nodes-base.function",
+      "typeVersion": 1,
+      "position": [
+        -640,
+        240
+      ]
+    },
+    {
+      "parameters": {
+        "responseCode": 200,
+        "responseData": "json",
+        "responseBody": "={{$json}}"
+      },
+      "id": "12",
+      "name": "R_orders_get",
+      "type": "n8n-nodes-base.respondToWebhook",
+      "typeVersion": 1,
+      "position": [
+        -420,
+        240
+      ]
+    },
+    {
+      "parameters": {
+        "path": "orders/list",
+        "httpMethod": "POST",
+        "responseMode": "responseNode"
+      },
+      "id": "13",
+      "name": "W_orders_list",
+      "type": "n8n-nodes-base.webhook",
+      "typeVersion": 1,
+      "position": [
+        -900,
+        420
+      ]
+    },
+    {
+      "parameters": {
+        "functionCode": "const body = $json.body ?? $json;\nreturn [{ json: { ok: true, endpoint: 'orders/list', received: body, ts: new Date().toISOString() } }];"
+      },
+      "id": "14",
+      "name": "F_orders_list",
+      "type": "n8n-nodes-base.function",
+      "typeVersion": 1,
+      "position": [
+        -640,
+        420
+      ]
+    },
+    {
+      "parameters": {
+        "responseCode": 200,
+        "responseData": "json",
+        "responseBody": "={{$json}}"
+      },
+      "id": "15",
+      "name": "R_orders_list",
+      "type": "n8n-nodes-base.respondToWebhook",
+      "typeVersion": 1,
+      "position": [
+        -420,
+        420
+      ]
+    },
+    {
+      "parameters": {
+        "path": "inventory/sku",
+        "httpMethod": "POST",
+        "responseMode": "responseNode"
+      },
+      "id": "16",
+      "name": "W_inventory_sku",
+      "type": "n8n-nodes-base.webhook",
+      "typeVersion": 1,
+      "position": [
+        -900,
+        600
+      ]
+    },
+    {
+      "parameters": {
+        "functionCode": "const body = $json.body ?? $json;\nreturn [{ json: { ok: true, endpoint: 'inventory/sku', received: body, ts: new Date().toISOString() } }];"
+      },
+      "id": "17",
+      "name": "F_inventory_sku",
+      "type": "n8n-nodes-base.function",
+      "typeVersion": 1,
+      "position": [
+        -640,
+        600
+      ]
+    },
+    {
+      "parameters": {
+        "responseCode": 200,
+        "responseData": "json",
+        "responseBody": "={{$json}}"
+      },
+      "id": "18",
+      "name": "R_inventory_sku",
+      "type": "n8n-nodes-base.respondToWebhook",
+      "typeVersion": 1,
+      "position": [
+        -420,
+        600
+      ]
+    },
+    {
+      "parameters": {
+        "path": "pricing/sku",
+        "httpMethod": "POST",
+        "responseMode": "responseNode"
+      },
+      "id": "19",
+      "name": "W_pricing_sku",
+      "type": "n8n-nodes-base.webhook",
+      "typeVersion": 1,
+      "position": [
+        -900,
+        780
+      ]
+    },
+    {
+      "parameters": {
+        "functionCode": "const body = $json.body ?? $json;\nreturn [{ json: { ok: true, endpoint: 'pricing/sku', received: body, ts: new Date().toISOString() } }];"
+      },
+      "id": "20",
+      "name": "F_pricing_sku",
+      "type": "n8n-nodes-base.function",
+      "typeVersion": 1,
+      "position": [
+        -640,
+        780
+      ]
+    },
+    {
+      "parameters": {
+        "responseCode": 200,
+        "responseData": "json",
+        "responseBody": "={{$json}}"
+      },
+      "id": "21",
+      "name": "R_pricing_sku",
+      "type": "n8n-nodes-base.respondToWebhook",
+      "typeVersion": 1,
+      "position": [
+        -420,
+        780
+      ]
+    }
+  ],
+  "connections": {
+    "W_health": {
+      "main": [
+        [
+          {
+            "node": "F_health",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "F_health": {
+      "main": [
+        [
+          {
+            "node": "R_health",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "W_ingest": {
+      "main": [
+        [
+          {
+            "node": "F_ingest",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "F_ingest": {
+      "main": [
+        [
+          {
+            "node": "R_ingest",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "W_catalog_product": {
+      "main": [
+        [
+          {
+            "node": "F_catalog_product",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "F_catalog_product": {
+      "main": [
+        [
+          {
+            "node": "R_catalog_product",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "W_orders_get": {
+      "main": [
+        [
+          {
+            "node": "F_orders_get",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "F_orders_get": {
+      "main": [
+        [
+          {
+            "node": "R_orders_get",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "W_orders_list": {
+      "main": [
+        [
+          {
+            "node": "F_orders_list",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "F_orders_list": {
+      "main": [
+        [
+          {
+            "node": "R_orders_list",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "W_inventory_sku": {
+      "main": [
+        [
+          {
+            "node": "F_inventory_sku",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "F_inventory_sku": {
+      "main": [
+        [
+          {
+            "node": "R_inventory_sku",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "W_pricing_sku": {
+      "main": [
+        [
+          {
+            "node": "F_pricing_sku",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "F_pricing_sku": {
+      "main": [
+        [
+          {
+            "node": "R_pricing_sku",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    }
+  },
+  "active": false,
+  "meta": {
+    "description": "Webhook → Function → Respond for 7 endpoints (health + 6)"
+  },
+  "settings": {},
+  "staticData": null
+}
